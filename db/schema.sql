@@ -1,0 +1,11 @@
+CREATE DATABASE noteBook-db;
+
+USE noteBook-db;
+
+CREATE TABLE noteBook
+(
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR (225) NOT NULL,
+  notes VARCHAR(225),
+  PRIMARY KEY(id)
+);

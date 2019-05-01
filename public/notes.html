@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link rel="stylesheet" href="style.css">
+  <title>NoteBook</title>
+</head>
+
+<body>
+
+  <nav class="navbad ">
+    <a class="navbar-brand" href="/">Note Book</a>
+  </nav>
+
+  <div class="container">
+    <div class="card-body">
+      <h3 class="card-header">Take a Note!</h3>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Note Title" id="noteTitle">
+      </div>
+      <div class="form-group">
+        <textarea id="note" rows="6"></textarea>
+        <button class="btn btn-success float-right" id="save">Save Note</button>
+      </div>
+    </div>
+    <br>
+    <div class="card-body">
+      <h3 class="card-header">Past Notes</h3>
+      <button class="btn btn-danger fa fa-trash float-right"></button>
+    </div>
+
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
