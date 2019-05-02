@@ -16,8 +16,8 @@ module.exports = function(app){
     });
   });
 
-  app.delete("/api/erase", function(req, res){
-    connection.query("DELETE FROM noteBook WHERE ?",req.body.id, function(err, result){
+  app.delete("/api/erase/:id", function(req, res){
+    connection.query("DELETE FROM noteBook WHERE id = ?",req.body.id, function(err, result){
       if (err) throw err;
 
       res.jason(result);

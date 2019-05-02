@@ -1,6 +1,6 @@
-CREATE DATABASE noteBook-db;
+CREATE DATABASE noteBook_db;
 
-USE noteBook-db;
+USE noteBook_db;
 
 CREATE TABLE noteBook
 (
