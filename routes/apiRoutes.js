@@ -8,7 +8,7 @@ module.exports = function(app){
     });
   });
 
-  app.post("/api/write", function(req, res){
+  app.post("/api/notes", function(req, res){
     connection.query("INSERT INTO noteBook SET ?", req.body, function(err, result){
       if (err) throw err;
 
@@ -16,9 +16,9 @@ module.exports = function(app){
     });
   });
 
-  app.delete("/api/erase/:id", function(req, res){
-    connection.query("DELETE FROM noteBook WHERE id = ?",req.body.id, function(err, result){
-      if (err) throw err;
+  app.delete("/api/notes/:id", function(req, res){
+    connection.query("DELETE FROM noteBook WHERE id = ?",[req.params.id], function(err, result){
+      if (err) res.status(500).end();
 
       res.jason(result);
     })
