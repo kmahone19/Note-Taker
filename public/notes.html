@@ -11,13 +11,13 @@
   <title>NoteBook</title>
 </head>
 
-<body>
+<body class="cust-bg2">
 
   <nav class="navbad bg-info">
-    <a class="navbar-brand text-light display-4 font-weight-bold" href="/">Note Book</a>
+    <a class="navbar-brand text-light display-4 font-weight-bold cust-size" href="/">Note Book</a>
   </nav>
 
-  <div class="container">
+  <div class="container border border-dark mt-3">
     <div class="card-body">
       <h3 class="card-header">Take a Note!</h3>
       <div class="form-group">
@@ -49,7 +49,6 @@
     }).then(
       function (dbNotes) {
         dbNotes.forEach(printTable);
-        console.log("this run!");
         console.log(dbNotes)
       }
     )
@@ -79,7 +78,7 @@
     $("#save").on("click", function () {
       const noteData = {
         title: $("#noteTitle").val().trim(),
-        notes: ("#note")
+        notes: $("#note").val().trim()
       }
 
       if (!noteData.title || !noteData.notes) {
@@ -102,6 +101,7 @@
     });
 
     $(document).on("click", ".delBtn", function () {
+
       const noteId = $(this).attr('data-id');
 
       $.ajax({
