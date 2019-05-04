@@ -1,7 +1,7 @@
 # Note Taker
   A Rutgers coding bootcamp assignment
 
-  Check out the full app here : 
+  Check out the full app here : https://kevins-notetaker.herokuapp.com/
 
 ## Technologies Used
 - HTML
