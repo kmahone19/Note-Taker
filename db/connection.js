@@ -9,8 +9,8 @@ if (process.env.JAWSDB_URL) {
     host: "localhost",
     port: 3306,
     user: "root",
-    password: process.env.secretPassword,
-    database: "noteBook_db"
+    password:process.env.secret_password,
+    database: "notebook_db"
   });
 }
 

@@ -31,7 +31,9 @@
     <br>
     <div class="card-body">
       <h3 class="card-header">Past Notes</h3>
-      <div id="pastNotes"></div>
+      <div class="card-body">
+        <ul id="pastNotes"></ul>
+      </div>
     </div>
 
   </div>
@@ -40,7 +42,80 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="assets/notes.js"></script>
+  <script type="text/javascript">
+    $.ajax({
+      url: "/api/notes",
+      type: "GET"
+    }).then(
+      function (dbNotes) {
+        dbNotes.forEach(printTable);
+        console.log("this run!");
+        console.log(dbNotes)
+      }
+    )
+
+    function printTable(tableInfo) {
+      console.log(tableInfo);
+
+      const $li = $("<li>").addClass("list-group-item");
+
+      var $div = $("<div>");
+
+      var $button = $("<button>").addClass("fas fa-trash float-right text-danger delBtn")
+        .attr("data-id", tableInfo.id);
+
+      var $span = $("<span>").text(tableInfo.title);
+
+      var $p = $("<p>").text(tableInfo.notes);
+
+      $div.append($span, $button);
+
+      $li.append($div, $p)
+
+      $("#pastNotes").append($li);
+    }
+
+
+    $("#save").on("click", function () {
+      const noteData = {
+        title: $("#noteTitle").val().trim(),
+        notes: ("#note")
+      }
+
+      if (!noteData.title || !noteData.notes) {
+        return false;
+      }
+
+      $.ajax({
+        url: "/api/notes",
+        method: "POST",
+        data: noteData
+      }).then(
+        function (response) {
+          console.log(response)
+          console.log("New Note added");
+
+          location.reload();
+        }
+      )
+
+    });
+
+    $(document).on("click", ".delBtn", function () {
+      const noteId = $(this).attr('data-id');
+
+      $.ajax({
+        url: "/api/notes/" + noteId,
+        method: "DELETE"
+      }).then(
+        function () {
+          console.log("Delted: " + id);
+
+          location.reload();
+        }
+      )
+    });
+  </script>
 </body>
 
 </html>
